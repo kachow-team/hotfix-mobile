@@ -7,5 +7,6 @@ public class Constants {
     public static String PICKED_CITY_RU = "Римини";
     public static Bitmap PICKED_BITMAP = null;
     public static boolean IS_TESTING = false;
-
+    public static boolean FOR_TEST_SUCCESS_LATLNG = false;
+    public static boolean FOR_TEST_SUCCESS_PRICE = false;
 }

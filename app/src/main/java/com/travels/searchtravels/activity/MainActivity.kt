@@ -200,7 +200,9 @@ class MainActivity : AppCompatActivity() {
 
     fun uploadImage(uri: Uri?) {
         if (uri != null) {
-            showLoader()
+            if (!Constants.IS_TESTING) {
+                showLoader()
+            }
             try {
                 val bitmap = resizeBitmap(
                     MediaStore.Images.Media.getBitmap(contentResolver, uri)
@@ -212,6 +214,7 @@ class MainActivity : AppCompatActivity() {
                     object : OnVisionApiListener {
 
                         override fun onSuccess(latLng: LatLng) {
+                            Constants.FOR_TEST_SUCCESS_LATLNG = true;
                             getCity(latLng, "en-GB")
                             val handler = Handler()
                             handler.postDelayed({

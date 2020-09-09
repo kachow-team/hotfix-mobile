@@ -298,7 +298,7 @@ public class DetailsActivity extends AppCompatActivity {
                             cityTV.setText(Constants.PICKED_CITY_RU);
                             countryTV.setText(countryName);
                             ImageView photoIV = header.findViewById(R.id.photoIV);
-
+                            Constants.FOR_TEST_SUCCESS_PRICE = true;
                             if (Constants.PICKED_BITMAP != null) {
                                 Glide.with(getApplicationContext()).load(Constants.PICKED_BITMAP).centerCrop()
                                         .placeholder(R.drawable.ic_launcher_background)

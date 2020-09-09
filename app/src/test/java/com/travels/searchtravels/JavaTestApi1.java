@@ -2,24 +2,35 @@ package com.travels.searchtravels;
 
 
 import android.net.Uri;
-
+import com.travels.searchtravels.R;
 import com.travels.searchtravels.activity.DetailsActivity;
 import com.travels.searchtravels.activity.MainActivity;
 
 import org.junit.Test;
 
-import org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import static org.junit.Assert.assertTrue;
+
 import com.travels.searchtravels.utils.Constants;
 
+
+@RunWith(RobolectricTestRunner.class)
 public class JavaTestApi1 {
     @Test
-    public void testMountain() throws Exception {
+    public void testImage() throws Exception {
         Constants.IS_TESTING = true;
         MainActivity mainActivity = new MainActivity();
-        mainActivity.uploadImage(Uri.parse("https://avatars.mds.yandex.net/get-zen_doc/1917356/pub_5e54c8d76948c51ea07bce25_5e54c9f1cc6d233fd0f74604/scale_1200"));
-        //assertEquals("Sochi", Constants.PICKED_CITY_EN);
+        mainActivity.uploadImage(Uri.parse("android.resource://" + "com.travels.searchtravels" + "/" + R.drawable.test));
+        assertTrue(Constants.FOR_TEST_SUCCESS_LATLNG);
+    }
+    @Test
+    public void testPrice() throws Exception {
+        Constants.IS_TESTING = true;
+        DetailsActivity detailsActivity = new DetailsActivity();
+        detailsActivity.getInfoNomad("Moscow");
+        assertTrue(Constants.FOR_TEST_SUCCESS_PRICE);
     }
 }
