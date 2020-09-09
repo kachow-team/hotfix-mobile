@@ -243,7 +243,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadByCategory(category: String) {
+    public fun loadByCategory(category: String) {
         var city = "Rimini"
         var cityRu = "Римини"
         when(category){
@@ -274,8 +274,10 @@ class MainActivity : AppCompatActivity() {
         }
         Constants.PICKED_CITY_EN = city
         Constants.PICKED_CITY_RU = cityRu
-        hideLoader()
-        startDetailsActivity()
+        if (!Constants.IS_TESTING) {
+            hideLoader()
+            startDetailsActivity()
+        }
     }
 
     private fun getCity(latLng: LatLng, language : String) {
